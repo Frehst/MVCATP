@@ -205,6 +205,18 @@
     <Compile Include="Migrations\202104091047210_SetDataToSurfaces.Designer.cs">
       <DependentUpon>202104091047210_SetDataToSurfaces.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104091048576_SetDataToPlayers.cs" />
+    <Compile Include="Migrations\202104091048576_SetDataToPlayers.Designer.cs">
+      <DependentUpon>202104091048576_SetDataToPlayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104091054258_ChaneCoachIDTONull.cs" />
+    <Compile Include="Migrations\202104091054258_ChaneCoachIDTONull.Designer.cs">
+      <DependentUpon>202104091054258_ChaneCoachIDTONull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104091104130_MorePlayers.cs" />
+    <Compile Include="Migrations\202104091104130_MorePlayers.Designer.cs">
+      <DependentUpon>202104091104130_MorePlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Coach.cs" />
@@ -313,6 +325,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104091047210_SetDataToSurfaces.resx">
       <DependentUpon>202104091047210_SetDataToSurfaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091048576_SetDataToPlayers.resx">
+      <DependentUpon>202104091048576_SetDataToPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091054258_ChaneCoachIDTONull.resx">
+      <DependentUpon>202104091054258_ChaneCoachIDTONull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091104130_MorePlayers.resx">
+      <DependentUpon>202104091104130_MorePlayers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
