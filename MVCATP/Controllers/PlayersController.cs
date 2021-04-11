@@ -27,5 +27,23 @@ namespace MVCATP.Controllers
             var players = _context.Players.Include(m => m.Country);
             return View(players.ToList());
         }
+
+        public ActionResult Details(int id)
+        {
+            var players = _context.Players.Include(m => m.Coach).Include(m => m.Surface).SingleOrDefault(m => m.PlayerID == id);
+
+            if (players == null)
+                return HttpNotFound();
+
+            return View(players);
+
+
+        }
+        public ActionResult New()
+        {
+            return View();
+        }
+
+    
     }
 }

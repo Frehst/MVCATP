@@ -12,11 +12,11 @@ namespace MVCATP.Models
         public int CoachID { get; set; }
 
 
-        [Display(Name = "Name")]
+        [Display(Name = "Coach Name")]
         public string CoachName { get; set; }
 
 
-        [Display(Name = "Surname")]
+        [Display(Name = "Coach Surname")]
         public string CoachSurname { get; set; }
 
     }

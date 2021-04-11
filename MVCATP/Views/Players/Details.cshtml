@@ -1,0 +1,53 @@
+﻿@model MVCATP.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3><b>Details</b></h3>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.PlayerSurname)  @Html.DisplayFor(model => model.PlayerName) </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.CoachSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach.CoachSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach.CoachName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surface.SurfaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surface.SurfaceName)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to list ", "Index", "Players", new { @class = "btn btn-primary" })
+</p>
