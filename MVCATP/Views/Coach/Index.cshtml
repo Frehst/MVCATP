@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCATP.Models.Coach>
+
+@{
+    ViewBag.Title = "Coach";
+}
+
+<h2>Coaches</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CoachName)
+            @Html.DisplayNameFor(model => model.CoachSurname)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoachName)
+            @Html.DisplayFor(modelItem => item.CoachSurname)
+        </td>
+
+
+    </tr>
+}
+
+</table>
