@@ -9,6 +9,7 @@ namespace MVCATP.Models
     public class Coach
     {
 
+        [Display(Name = "Coach")]
         public int CoachID { get; set; }
 
 
@@ -19,5 +20,14 @@ namespace MVCATP.Models
         [Display(Name = "Coach Surname")]
         public string CoachSurname { get; set; }
 
+
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return CoachSurname +" " + CoachName;
+            }
+        }
     }
 }

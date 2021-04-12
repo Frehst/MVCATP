@@ -1,0 +1,50 @@
+﻿@model  MVCATP.ViewModels.PlayerFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Player"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Surname)
+        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Surname)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Birthday)
+        @Html.TextBoxFor(m => m.Birthday, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Birthday)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CountryID)
+        @Html.DropDownListFor(m => m.CountryID, new SelectList(Model.Countries, "CountryID", "CountryName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CountryID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CoachID)
+        @Html.DropDownListFor(m => m.CoachID, new SelectList(Model.Coaches, "CoachID", "FullName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CoachID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SurfaceID)
+        @Html.DropDownListFor(m => m.SurfaceID, new SelectList(Model.Surfaces, "SurfaceID", "SurfaceName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SurfaceID)
+    </div>
+    @Html.HiddenFor(m => m.PlayerID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

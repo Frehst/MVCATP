@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVCATP.Models;
 using System.Data.Entity;
+using MVCATP.ViewModels;
 
 namespace MVCATP.Controllers
 {
@@ -41,9 +42,43 @@ namespace MVCATP.Controllers
         }
         public ActionResult New()
         {
-            return View();
+            var coaches = _context.Coaches.ToList();
+            var countries = _context.Countries.ToList();
+            var surfaces = _context.Surfaces.ToList();
+
+
+            var viewModel = new PlayerFormViewModel
+            {
+                Coaches = coaches,
+                Countries = countries,
+                Surfaces = surfaces
+
+            };
+
+            return View("PlayerForm", viewModel);
+
+            
         }
 
-    
+        public ActionResult Edit(int id)
+        {
+            var coaches = _context.Coaches.ToList();
+            var countries = _context.Countries.ToList();
+            var surfaces = _context.Surfaces.ToList();
+
+            var player = _context.Players.SingleOrDefault(c => c.PlayerID == id);
+            if (player == null)
+                return HttpNotFound();
+
+            var viewModel = new PlayerFormViewModel(player)
+            {
+                Coaches = coaches,
+                Countries = countries,
+                Surfaces = surfaces
+
+            };
+
+            return View("PlayerForm", viewModel);
+        }
     }
 }
