@@ -305,6 +305,8 @@
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Players\Details.cshtml" />
     <Content Include="Views\Players\PlayerForm.cshtml" />
+    <Content Include="Views\Countries\Add.cshtml" />
+    <Content Include="Views\Coaches\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

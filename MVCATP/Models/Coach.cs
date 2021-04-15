@@ -21,13 +21,18 @@ namespace MVCATP.Models
         public string CoachSurname { get; set; }
 
 
-        [Display(Name = "Full Name")]
+        [Display(Name = "Coach ")]
         public string FullName
         {
             get
             {
                 return CoachSurname +" " + CoachName;
             }
+        }
+
+        public Coach()
+        {
+            CoachID = 0;
         }
     }
 }

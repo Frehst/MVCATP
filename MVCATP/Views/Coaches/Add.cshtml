@@ -1,0 +1,30 @@
+﻿@model  MVCATP.Models.Coach
+@{
+    ViewBag.Title = "Add new Coach";
+}
+
+<h2>@("Add new Coach")</h2>
+
+@using (Html.BeginForm("Save", "Coaches"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.CoachName)
+        @Html.TextBoxFor(m => m.CoachName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CoachName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CoachSurname)
+        @Html.TextBoxFor(m => m.CoachSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CoachSurname)
+    </div>
+
+
+    @Html.HiddenFor(m => m.CoachID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

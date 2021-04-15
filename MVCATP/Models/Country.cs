@@ -8,10 +8,19 @@ namespace MVCATP.Models
 {
     public class Country
     {
-        public int CountryID { get; set; }
+        public int? CountryID { get; set; }
 
 
         [Display(Name = "Country")]
         public string CountryName { get; set; }
+
+
+
+
+        public Country()
+        {
+            CountryID = 0;
+        }
+
     }
 }

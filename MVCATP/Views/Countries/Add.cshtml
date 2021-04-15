@@ -1,0 +1,25 @@
+﻿@model  MVCATP.Models.Country
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>@("Add new Country")</h2>
+
+@using (Html.BeginForm("Save", "Countries"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.CountryName)
+        @Html.TextBoxFor(m => m.CountryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CountryName)
+    </div>
+
+
+    @Html.HiddenFor(m => m.CountryID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
