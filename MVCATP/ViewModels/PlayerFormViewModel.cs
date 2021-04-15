@@ -15,13 +15,13 @@ namespace MVCATP.ViewModels
 
         public IEnumerable<Coach> Coaches;
 
-        public int PlayerID { get; set; }
+        public int? PlayerID { get; set; }
 
+        [Display(Name ="Player Name")]
+        public string PlayerName { get; set; }
 
-        public string Name { get; set; }
-
-       
-        public string Surname { get; set; }
+        [Display(Name = "Player Surname")]
+        public string PlayerSurname { get; set; }
 
         [Display(Name = "Coach")]
         public int? CoachID { get; set; }
@@ -35,11 +35,17 @@ namespace MVCATP.ViewModels
         public int CountryID { get; set; }
 
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
 
         public int Points { get; set; }
 
+        public int Age
+        {
+            get
+            {
+                return DateTime.Now.Year - Birthday.Value.Year;
+            }
+        }
         public string Title
         {
             get
@@ -56,14 +62,12 @@ namespace MVCATP.ViewModels
         public PlayerFormViewModel(Player player)
         {
             PlayerID = player.PlayerID;
-            Name = player.PlayerName;
-            Surname = player.PlayerSurname;
+            PlayerSurname = player.PlayerSurname;
+            PlayerName = player.PlayerName;
             CoachID = player.CoachID;
             SurfaceID = player.SurfaceID;
             Birthday = player.Birthday;
             Points = player.Points;
-
-
 
         }
 

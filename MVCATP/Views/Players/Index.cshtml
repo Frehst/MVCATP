@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @("Position")
+            @("Player ID")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PlayerSurname)
@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Country.CountryName)
         </th>
         <th>
-             @("Age")
+            @("Age")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Points)
@@ -32,39 +32,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.PlayerID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PlayerSurname)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PlayerName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Country.CountryName)
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td>
 
-    <td>
-        @((DateTime.Now.Year-item.Birthday.Year).ToString())
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
 
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Points)
-    </td>
-    <td>
-        @Html.ActionLink("Details", "Details", new { id = item.PlayerID }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Points)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.PlayerID }, new { @class = "btn btn-primary" })
 
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.PlayerID }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PlayerID }, new { @class = "btn btn-primary" })
 
-    </td>
+            </td>
 
 
-</tr>
-}
+        </tr>
+    }
 
 </table>

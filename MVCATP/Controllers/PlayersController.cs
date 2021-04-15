@@ -7,6 +7,8 @@ using MVCATP.Models;
 using System.Data.Entity;
 using MVCATP.ViewModels;
 
+
+
 namespace MVCATP.Controllers
 {
     public class PlayersController : Controller
@@ -62,9 +64,7 @@ namespace MVCATP.Controllers
 
         public ActionResult Edit(int id)
         {
-            var coaches = _context.Coaches.ToList();
-            var countries = _context.Countries.ToList();
-            var surfaces = _context.Surfaces.ToList();
+
 
             var player = _context.Players.SingleOrDefault(c => c.PlayerID == id);
             if (player == null)
@@ -72,13 +72,51 @@ namespace MVCATP.Controllers
 
             var viewModel = new PlayerFormViewModel(player)
             {
-                Coaches = coaches,
-                Countries = countries,
-                Surfaces = surfaces
+                Coaches = _context.Coaches.ToList(),
+                Countries = _context.Countries.ToList(),
+                Surfaces = _context.Surfaces.ToList()
 
             };
 
             return View("PlayerForm", viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Player player)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                var viewModel = new PlayerFormViewModel(player)
+                {
+                    Coaches = _context.Coaches.ToList(),
+                    Countries = _context.Countries.ToList(),
+                    Surfaces = _context.Surfaces.ToList()
+                };
+
+                return View("PlayerForm", viewModel);
+            }
+
+            if (player.PlayerID == 0)
+            {
+                _context.Players.Add(player);
+            }
+            else
+            {
+                var playerInDb = _context.Players.Single(m => m.PlayerID == player.PlayerID);
+                playerInDb.PlayerSurname = player.PlayerSurname;
+                playerInDb.PlayerName = player.PlayerName;
+                playerInDb.CoachID = player.CoachID;
+                playerInDb.SurfaceID = player.SurfaceID;
+                playerInDb.CountryID = player.CountryID;
+                playerInDb.Birthday = player.Birthday;
+                playerInDb.Points = player.Points;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Players");
         }
     }
 }

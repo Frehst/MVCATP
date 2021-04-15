@@ -220,6 +220,18 @@
     <Compile Include="Migrations\202104091104130_MorePlayers.Designer.cs">
       <DependentUpon>202104091104130_MorePlayers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104131358372_ChangeDatetime.cs" />
+    <Compile Include="Migrations\202104131358372_ChangeDatetime.Designer.cs">
+      <DependentUpon>202104131358372_ChangeDatetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104131600533_add-migration CreateAge.cs" />
+    <Compile Include="Migrations\202104131600533_add-migration CreateAge.Designer.cs">
+      <DependentUpon>202104131600533_add-migration CreateAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104151202526_ass.cs" />
+    <Compile Include="Migrations\202104151202526_ass.Designer.cs">
+      <DependentUpon>202104151202526_ass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Coach.cs" />
@@ -292,7 +304,6 @@
     <Content Include="Views\Coaches\Index.cshtml" />
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Players\Details.cshtml" />
-    <Content Include="Views\Players\New.cshtml" />
     <Content Include="Views\Players\PlayerForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +355,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104091104130_MorePlayers.resx">
       <DependentUpon>202104091104130_MorePlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104131358372_ChangeDatetime.resx">
+      <DependentUpon>202104131358372_ChangeDatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104131600533_add-migration CreateAge.resx">
+      <DependentUpon>202104131600533_add-migration CreateAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104151202526_ass.resx">
+      <DependentUpon>202104151202526_ass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+
 
 namespace MVCATP.Models
 {
@@ -28,10 +26,18 @@ namespace MVCATP.Models
 
         public int CountryID { get; set; }
 
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime Birthday { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? Birthday { get; set; }
 
         public int Points { get; set; }
+
+
+        public int Age
+        {
+            get
+            {
+                return DateTime.Now.Year - Birthday.Value.Year;
+            }
+        }
     }
 }
